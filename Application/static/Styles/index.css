@@ -1,0 +1,70 @@
+/* Shared design tokens + home page base */
+@import url('./detector.css');
+
+/* Icon styling */
+.icon-color {
+    color: var(--accent-teal);
+    margin-right: 0.5rem;
+    display: inline-block;
+}
+
+/* Stroke page header alias */
+.Services-Sheader .services-h,
+.Services-Sheader .services-p {
+    text-align: center;
+}
+
+.services-h {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.services-p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Prediction result badges */
+.risk-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.risk-high {
+    background: rgba(236, 72, 153, 0.15);
+    color: #f9a8d4;
+    border: 1px solid rgba(236, 72, 153, 0.35);
+}
+
+.risk-low {
+    background: rgba(8, 222, 157, 0.12);
+    color: #6ee7b7;
+    border: 1px solid rgba(8, 222, 157, 0.35);
+}
+
+.result-message {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    white-space: pre-line;
+}
+
+#menu {
+    border: none;
+    background: transparent;
+}
+
+.S-btn {
+    position: relative;
+    overflow: hidden;
+}

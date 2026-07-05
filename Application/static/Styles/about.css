@@ -1,0 +1,223 @@
+/* About Page Styles */
+
+/* Only styles specific to about page - shared tokens from detector.css */
+.About {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 6rem 2rem 4rem;
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+}
+
+.aboutContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.aboutHero {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.aboutHero h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.aboutHero p {
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.aboutCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.aboutCard {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.aboutCard:hover {
+  transform: translateY(-8px);
+  background: var(--bg-glass-hover);
+  border-color: rgba(108, 99, 255, 0.3);
+  box-shadow: 0 12px 40px rgba(108, 99, 255, 0.15);
+}
+
+.aboutCard .icon-wrap {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 1.8rem;
+}
+
+.aboutCard h3 {
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  margin-bottom: 0.8rem;
+}
+
+.aboutCard p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.teamSection {
+  width: 100%;
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.teamSection h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 3rem;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.teamMember {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.teamMember:hover {
+  transform: translateY(-5px);
+  background: var(--bg-glass-hover);
+  border-color: rgba(108, 99, 255, 0.3);
+  box-shadow: 0 8px 30px rgba(108, 99, 255, 0.15);
+}
+
+.team-avatar-img {
+   width: 120px;
+   height: 120px;
+   border-radius: 50%;
+   border: 3px solid var(--primary);
+   margin-bottom: 1rem;
+   object-fit: cover;
+   object-position: center 15%;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.teamMember h4 {
+   font-size: 1.1rem;
+   color: var(--text-primary);
+   margin-bottom: 0.3rem;
+}
+
+.teamMember p {
+   color: var(--accent);
+   font-size: 0.9rem;
+   margin-bottom: 1rem;
+}
+
+.teamMember .social-links {
+   display: flex;
+   justify-content: center;
+   gap: 0.8rem;
+}
+
+.teamMember .social-links a {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  transition: var(--transition);
+}
+
+.teamMember .social-links a:hover {
+  color: var(--primary-light);
+  transform: scale(1.2);
+}
+
+.aboutSection {
+   width: 60vw;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin: 5rem auto;
+   text-align: center;
+}
+
+.aboutSection img {
+   max-width: 100%;
+   height: auto;
+   border-radius: 20px;
+   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+   margin-bottom: 2rem;
+}
+
+.about-mission-title {
+   font-size: 2rem;
+   font-weight: 800;
+   background: var(--gradient-primary);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   background-clip: text;
+   margin-bottom: 1.5rem;
+}
+
+.about-mission-text {
+   color: var(--text-secondary);
+   line-height: 1.8;
+   font-size: 1.05rem;
+}
+
+@media screen and (max-width: 768px) {
+  .About { padding: 5rem 1.5rem 3rem; }
+  .aboutHero h2 { font-size: 2.2rem; }
+  .aboutCards { grid-template-columns: 1fr; max-width: 400px; }
+  .teamSection h2 { font-size: 1.8rem; }
+  .teamGrid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .aboutSection { width: 90vw; }
+}
+
+@media screen and (min-width: 1024px) {
+  .teamGrid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}

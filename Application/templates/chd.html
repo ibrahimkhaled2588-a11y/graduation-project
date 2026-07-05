@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shifaa | CHD</title>
+    <link rel="icon" type="image/png" href="../static/images/logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600&family=Cairo:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../static/Styles/detector.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous" defer></script>
+</head>
+
+<body>
+    <div class="home">
+        <!-- NavBar -->
+        <div class="n-wrapper" id='Navebar'>
+            <div class="n-left">
+                <div class="n-logo">
+                    <img src="../static/images/mLogo.png" />
+                    <span>Shifaa</span>
+                </div>
+                
+            </div>
+            <div class="n-right" id="n-right">
+                <div class="u-list">
+                    <ul>
+                        <li><a href="/"><i class="fa-solid fa-house"></i>Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-robot"></i>
+                                Detector
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/ecg_mi">ECG</a></li>
+                                <li><a class="dropdown-item" href="/stroke">Stroke</a></li>
+                                <li><a class="dropdown-item" href="/chd">CHD</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-notes-medical"></i>
+                                Analysis
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/stroke_analysis">Stroke</a></li>
+                                <li><a class="dropdown-item" href="/chd_analysis">CHD</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/about"><i class="fa-solid fa-circle-info"></i>About</a></li>
+                        <li><a href="/chat"><i class="fa-solid fa-comments"></i>Chatbot</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="n-button-wrap">
+                <a href="/" class="n-button"><i class="fa-solid fa-rocket"></i> Get Started</a>
+                <select class="lang-select">
+                    <option value="en" selected>EN</option>
+                    <option value="ar">AR</option>
+                </select>
+            </div>
+            <button type="button" class="fa-solid fa-bars" id="menu" aria-label="Open menu"></button>
+        </div>
+
+        <div class='intro'>
+            <div class="i-left flex-item">
+                <div class="i-name">
+                    <span data-lng="homeHero1">Check Your Heart</span>
+                    <span data-lng="homeHero2">Health Today</span>
+                    <span data-lng="chdHeroDesc">Assess your risk of developing Coronary Heart Disease (CHD) within the next 10 years. Our CHD Predictor is powered by the Framingham Heart Study data.</span>
+                </div>
+                <button class="button i-button" id="homeBtn"><span data-lng="homeBtn">Get Started</span> <i class="fa-solid fa-arrow-down"></i></button>
+            </div>
+            <div class="i-right flex-item">
+                <img src="../static/images/CHD Detector.png" alt="CHD Detector Illustration" id="introImg" class="animate-on-scroll" />
+            </div>
+        </div>
+
+         <!-- CHD Questionnaire -->
+         <div class='Services-Sheader' id="Services-Sheader">
+             <p class='Services-h' data-lng="CHDtitle">CHD Questionnaire</p>
+             <p class='Services-p' data-lng="CHDtitle2">Answer these questions below</p>
+         </div>
+         <div class="stroke-form-wrapper">
+             <div class="stroke-form-card">
+<!-- Vector Header -->
+                  <div class="form-header">
+                      <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="stroke-form-icon">
+                          <circle cx="30" cy="30" r="26" stroke="var(--accent)" stroke-width="2" fill="rgba(108,99,255,0.1)"/>
+                          <path d="M18 40L30 22L42 40" stroke="var(--accent-teal)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                          <circle cx="22" cy="26" r="3" fill="var(--accent)"/>
+                          <circle cx="30" cy="20" r="3" fill="var(--accent-teal)"/>
+                          <circle cx="38" cy="26" r="3" fill="var(--accent-light)"/>
+                      </svg>
+                  </div>
+                 <form id="my-form" action="/chd" method="POST">
+                     <div class="form-group">
+                         <label for="gender"><i class="fa-solid fa-venus-mars icon-color"></i> <span data-lng="gender">What is your gender?</span></label>
+                         <select class="form-control" id="gender" name="gender" required>
+                             <option value="1" data-lng="male">Male</option>
+                             <option value="0" data-lng="female">Female</option>
+                         </select>
+                     </div>
+
+                     <div class="form-group">
+                         <label for="age"><i class="fa-solid fa-cake-candles icon-color"></i> <span data-lng="age">What is your current age?</span></label>
+                         <input type="number" class="form-control" id="age" name="age" min="1" max="120" placeholder="e.g. 45" required>
+                     </div>
+
+                     <div class="form-group">
+                         <label for="currentSmoker"><i class="fa-solid fa-smoking icon-color"></i> <span data-lng="bloodPressure">Do you currently smoke cigarettes?</span></label>
+                         <select class="form-control" id="currentSmoker" name="currentSmoker" required>
+                             <option value="1" data-lng="yes">Yes</option>
+                             <option value="0" data-lng="no">No</option>
+                         </select>
+                     </div>
+
+                     <div class="form-group">
+                         <label for="cigsPerDay"><i class="fa-solid fa-smoking icon-color"></i> <span data-lng="cigsNum">If you currently smoke, how many cigarettes do you smoke per day?</span></label>
+                         <input type="number" class="form-control" id="cigsPerDay" name="cigsPerDay" min="0" max="100" placeholder="e.g. 10" required>
+                     </div>
+
+                     <div class="form-group">
+                         <label for="BPMeds"><i class="fa-solid fa-pills icon-color"></i> <span data-lng="troponibloodPressure">Are you currently taking any blood pressure medications?</span></label>
+                         <select class="form-control" id="BPMeds" name="BPMeds" required>
+                             <option value="1" data-lng="yes">Yes</option>
+                             <option value="0" data-lng="no">No</option>
+                         </select>
+                     </div>
+
+                     <div class="form-group">
+                         <label for="prevalentStroke"><i class="fa-solid fa-brain icon-color"></i> <span data-lng="stroke">Have you ever had a stroke?</span></label>
+                         <select class="form-control" id="prevalentStroke" name="prevalentStroke" required>
+                             <option value="1" data-lng="yes">Yes</option>
+                             <option value="0" data-lng="no">No</option>
+                         </select>
+                     </div>
+
+                     <div class="form-group">
+                         <label for="prevalentHyp"><i class="fa-solid fa-heart-pulse icon-color"></i> <span data-lng="hypertension">Have you ever been diagnosed with hypertension?</span></label>
+                         <select class="form-control" id="prevalentHyp" name="prevalentHyp" required>
+                             <option value="1" data-lng="yes">Yes</option>
+                             <option value="0" data-lng="no">No</option>
+                         </select>
+                     </div>
+
+                     <div class="form-group">
+                         <label for="diabetes"><i class="fa-solid fa-droplet icon-color"></i> <span data-lng="diabetes">Have you ever been diagnosed with diabetes?</span></label>
+                         <select class="form-control" id="diabetes" name="diabetes" required>
+                             <option value="1" data-lng="yes">Yes</option>
+                             <option value="0" data-lng="no">No</option>
+                         </select>
+                     </div>
+
+                     <div class="form-group">
+                         <label for="totChol"><i class="fa-solid fa-flask icon-color"></i> <span data-lng="cholesterolLevel">What is your most recent total cholesterol level (mg/dL)?</span></label>
+                         <input type="number" class="form-control" id="totChol" name="totChol" min="0" max="600" placeholder="e.g. 200" required>
+                     </div>
+
+                     <div class="form-group">
+                         <label for="sysBP"><i class="fa-solid fa-gauge-high icon-color"></i> <span data-lng="topBloodPressure">What is your most recent systolic blood pressure?</span></label>
+                         <input type="number" class="form-control" id="sysBP" name="sysBP" min="0" max="300" placeholder="e.g. 120" required>
+                     </div>
+
+                     <div class="form-group">
+                         <label for="diaBP"><i class="fa-solid fa-gauge icon-color"></i> <span data-lng="bottomBloodPressure">What is your most recent diastolic blood pressure?</span></label>
+                         <input type="number" class="form-control" id="diaBP" name="diaBP" min="0" max="200" placeholder="e.g. 80" required>
+                     </div>
+
+                     <div class="form-group">
+                         <label for="height"><i class="fa-solid fa-ruler-vertical icon-color"></i> <span data-lng="height">What is your current Height? (meters, e.g. 1.70)</span></label>
+                         <input type="number" class="form-control" id="height" name="height" step="0.01" min="0.5" max="2.5" required>
+                     </div>
+
+                     <div class="form-group">
+                         <label for="weight"><i class="fa-solid fa-weight-hanging icon-color"></i> <span data-lng="weight">What is your current Weight? (kg)</span></label>
+                         <input type="number" class="form-control" id="weight" name="weight" min="20" max="300" required>
+                     </div>
+
+                     <div class="form-group">
+                         <label for="heartRate"><i class="fa-solid fa-heartbeat icon-color"></i> <span data-lng="restingHeartRate">What is your resting heart rate (bpm)?</span></label>
+                         <input type="number" class="form-control" id="heartRate" name="heartRate" min="20" max="300" placeholder="e.g. 72" required>
+                     </div>
+
+                     <div class="form-group">
+                         <label for="glucose"><i class="fa-solid fa-droplet icon-color"></i> <span data-lng="glucoseLevel">What is your most recent fasting blood glucose (mg/dL)?</span></label>
+                         <input type="number" class="form-control" id="glucose" name="glucose" min="0" max="400" placeholder="e.g. 85" required>
+                     </div>
+
+                     <button type="submit" class="submit-btn" id="formBtn">
+                         <i class="fa-solid fa-heart-pulse"></i> <span data-lng="formCheck">Check Your Heart</span>
+                     </button>
+                 </form>
+             </div>
+         </div>
+
+         {% include 'partials/prediction_result.html' %}
+
+         {% include 'partials/footer.html' %}
+
+         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+         <script src="../static/Scripts/detector-page.js"></script>
+         <script src="../static/Scripts/script.js"></script>
+     </body>
+ </html>

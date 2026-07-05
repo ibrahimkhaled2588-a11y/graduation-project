@@ -1,0 +1,16 @@
+flask
+gunicorn
+openai
+langchain
+langchain-openai
+langchain-chroma
+langchain-core
+chromadb
+python-dotenv
+pandas
+joblib
+tiktoken
+openpyxl
+scikit-learn>=1.3,<1.4
+scikit-image
+opencv-python==4.9.0.80

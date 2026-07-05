@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Shifaa | About</title>
+    <link rel="icon" type="image/png" href="../static/images/logo.png">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="canonical" href="about" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/Styles/detector.css">
+    <link rel="stylesheet" href="../static/Styles/about.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous" defer></script>
+</head>
+
+<body>
+    <div class="home">
+        <!-- NavBar -->
+        <div class="n-wrapper" id='Navebar'>
+            <div class="n-left">
+                <div class="n-logo">
+                    <img src="../static/images/mLogo.png" />
+                    <span>Shifaa</span>
+                </div>
+            </div>
+            <div class="n-right" id="n-right">
+                <div class="u-list">
+                    <ul>
+                        <li><a href="/"><i class="fa-solid fa-house"></i>Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-robot"></i>
+                                Detector
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/ecg_mi">ECG</a></li>
+                                <li><a class="dropdown-item" href="/stroke">Stroke</a></li>
+                                <li><a class="dropdown-item" href="/chd">CHD</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-notes-medical"></i>
+                                Analysis
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/stroke_analysis">Stroke</a></li>
+                                <li><a class="dropdown-item" href="/chd_analysis">CHD</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/about"><i class="fa-solid fa-circle-info"></i>About</a></li>
+                        <li><a href="/chat"><i class="fa-solid fa-comments"></i>Chatbot</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="n-button-wrap">
+                <a href="/" class="n-button"><i class="fa-solid fa-rocket"></i> Get Started</a>
+                <select class="lang-select">
+                    <option value="en" selected>EN</option>
+                    <option value="ar">AR</option>
+                </select>
+            </div>
+            <button type="button" class="fa-solid fa-bars" id="menu" aria-label="Open menu"></button>
+        </div>
+
+        <!-- About Hero -->
+        <div class="About">
+            <div class="aboutContainer">
+                <div class="aboutHero">
+                    <h2 data-lng="aboutHeroTitle">About Shifaa</h2>
+                    <p data-lng="aboutHeroDesc">Pioneering cardiovascular health through AI-powered detection and analysis. Our mission is to make heart health accessible to everyone.</p>
+                </div>
+
+                <div class="aboutCards">
+                    <div class="aboutCard">
+                        <div class="icon-wrap"><i class="fa-solid fa-brain"></i></div>
+                        <h3 data-lng="aboutCard1Title">AI-Powered Detection</h3>
+                        <p data-lng="aboutCard1Desc">Advanced machine learning algorithms analyze medical data to detect cardiovascular risks with high accuracy.</p>
+                    </div>
+                    <div class="aboutCard">
+                        <div class="icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
+                        <h3 data-lng="aboutCard2Title">Data Analytics</h3>
+                        <p data-lng="aboutCard2Desc">Comprehensive Power BI dashboards provide insights into cardiovascular disease patterns and risk factors.</p>
+                    </div>
+                    <div class="aboutCard">
+                        <div class="icon-wrap"><i class="fa-solid fa-headset"></i></div>
+                        <h3 data-lng="aboutCard3Title">24/7 Chatbot Support</h3>
+                        <p data-lng="aboutCard3Desc">Our intelligent chatbot provides instant answers to your cardiovascular health questions anytime.</p>
+                    </div>
+                </div>
+
+                <div class="aboutSection">
+                    <h2 class="about-mission-title" data-lng="missionTitle">Our Mission</h2>
+                    <p class="about-mission-text" data-lng="missionDesc">Our platform combines cutting-edge AI technology with medical expertise to deliver comprehensive cardiovascular health solutions. From early detection to detailed analysis, we're here to support your heart health journey.</p>
+                </div>
+
+                <!-- Team Section -->
+                <div class="teamSection">
+                    <h2 data-lng="teamTitle">Our Team</h2>
+                    <div class="teamGrid">
+                        <div class="teamMember">
+                            <img src="../static/images/Ahmed%20Hamdy.jpeg" alt="Ahmed Hamdy" class="team-avatar-img">
+                            <h4>Ahmed Hamdy</h4>
+                            <p>MLOPS Engineer</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="#"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="teamMember">
+                            <img src="../static/images/Mahmoud%20Allam.jpeg" alt="Mahmoud Allam" class="team-avatar-img">
+                            <h4>Mahmoud Allam</h4>
+                            <p>BI Engineer</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="#"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="teamMember">
+                            <img src="../static/images/Mo'men%20Nada.jpeg" alt="Mo'men Nada" class="team-avatar-img">
+                            <h4>Mo'men Nada</h4>
+                            <p>Data Analyst</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="#"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="teamMember">
+                            <img src="../static/images/Yosif%20Eid.jpeg" alt="Yosif Eid" class="team-avatar-img">
+                            <h4>Yosif Eid</h4>
+                            <p>Web Developer</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="#"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="teamMember">
+                            <img src="../static/images/Ziad%20Baza.jpeg" alt="Ziad Baza" class="team-avatar-img">
+                            <h4>Ziad Baza</h4>
+                            <p>Team Member</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="#"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="teamMember">
+                            <img src="../static/images/Zyad%20Moataz.jfif" alt="Zyad Moataz" class="team-avatar-img">
+                            <h4>Zyad Moataz</h4>
+                            <p>Team Member</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="#"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-container">
+                <div class="left">
+                    <img src="../static/images/logo2.png" alt="Shifaa Logo" />
+                </div>
+                <div class="mid">
+                    <h5>Main</h5>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/chat">Chat</a></li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <h5>Detector</h5>
+                    <ul>
+                        <li><a href="/ecg_mi">ECG</a></li>
+                        <li><a href="/stroke">Stroke</a></li>
+                        <li><a href="/chd">CHD</a></li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <h5>Analysis</h5>
+                    <ul>
+                        <li><a href="/stroke_analysis">Stroke</a></li>
+                        <li><a href="/chd_analysis">CHD</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../static/Scripts/script.js"></script>
+</body>
+</html>

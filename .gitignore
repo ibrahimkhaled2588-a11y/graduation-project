@@ -1,0 +1,18 @@
+*.joblib
+*.csv
+shifaa_VDB
+
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+
+# Runtime/generated data
+Application/chats.pkl
+Application/ecg_mi/images/
+
+# Editor
+.vscode/
+.ipynb_checkpoints/

@@ -1,0 +1,44 @@
+<div class="n-wrapper" id="Navebar">
+    <div class="n-left">
+        <div class="n-logo">
+            <img src="../static/images/mLogo.png" alt="Shifaa logo" />
+            <span>Shifaa</span>
+        </div>
+    </div>
+    <div class="n-right" id="n-right">
+        <div class="u-list">
+            <ul>
+                <li><a href="/"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-robot"></i>Detector
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/ecg_mi">ECG</a></li>
+                        <li><a class="dropdown-item" href="/stroke">Stroke</a></li>
+                        <li><a class="dropdown-item" href="/chd">CHD</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-notes-medical"></i>Analysis
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/stroke_analysis">Stroke</a></li>
+                        <li><a class="dropdown-item" href="/chd_analysis">CHD</a></li>
+                    </ul>
+                </li>
+                <li><a href="/about"><i class="fa-solid fa-circle-info"></i>About</a></li>
+                <li><a href="/chat"><i class="fa-solid fa-comments"></i>Chatbot</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="n-button-wrap">
+        <a href="/" class="n-button"><i class="fa-solid fa-rocket"></i> Get Started</a>
+        <select class="lang-select" aria-label="Language">
+            <option value="en" selected>EN</option>
+            <option value="ar">AR</option>
+        </select>
+    </div>
+    <button type="button" class="fa-solid fa-bars" id="menu" aria-label="Open menu"></button>
+</div>

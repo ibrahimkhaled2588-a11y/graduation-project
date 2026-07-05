@@ -1,0 +1,40 @@
+{% if message %}
+<div class="Result" id="prediction-result">
+    <h1>Your Result</h1>
+    <div class="checkResult">
+        {% if prediction == "1" %}
+        <p class="risk-badge risk-high"><i class="fa-solid fa-triangle-exclamation"></i> Elevated risk detected</p>
+        {% elif prediction == "0" %}
+        <p class="risk-badge risk-low"><i class="fa-solid fa-circle-check"></i> Low risk</p>
+        {% endif %}
+        <p class="result-message">{{ message }}</p>
+    </div>
+</div>
+{% endif %}
+
+{% if prediction == "1" and doctors %}
+<div class="doctors">
+    <div class="doctorsContainer">
+        <p class="doctors-heading">Meet Our</p>
+        <p class="doctors-title"><span>Top Rated</span> Doctors</p>
+    </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            {% for doctor in doctors %}
+            <div class="swiper-slide">
+                <img src="{{ doctor.image }}" alt="{{ doctor.name }}">
+                <div class="card-content">
+                    <h3>{{ doctor.name }}</h3>
+                    <p>{{ doctor.location }}</p>
+                    <p class="doctor-price">{{ doctor.price }} $</p>
+                </div>
+                <button type="button" class="card-btn" disabled title="Contact clinic to book">
+                    <i class="fa-solid fa-calendar-check"></i> Book Appointment
+                </button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+{% endif %}
