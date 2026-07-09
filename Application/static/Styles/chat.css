@@ -49,11 +49,13 @@ body.chat-page {
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     z-index: 999;
     background: rgba(15, 15, 35, 0.85);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-color);
-    transition: var(--transition);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    transform: translateZ(0);
 }
 
 .chat-page .n-wrapper.scrolled {

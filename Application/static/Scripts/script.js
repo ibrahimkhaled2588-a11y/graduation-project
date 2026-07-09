@@ -409,10 +409,11 @@ window.onscroll = function () {
 const homeBtn = document.getElementById("homeBtn");
 if (homeBtn) {
     homeBtn.addEventListener("click", function () {
-        const servicesHeader = document.getElementById("Services-Sheader") ||
-                               document.getElementById("Services");
-        if (servicesHeader) {
-            servicesHeader.scrollIntoView({ behavior: "smooth" });
+        const target = document.getElementById("Services-Sheader") ||
+                       document.getElementById("Services") ||
+                       document.getElementById("chart");
+        if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
         }
     });
 }
@@ -496,7 +497,11 @@ window.addEventListener('scroll', () => {
 // --- Click outside mobile menu to close ---
 document.addEventListener('click', (e) => {
     if (rightNav && menu) {
-        if (!rightNav.contains(e.target) && !menu.contains(e.target)) {
+        // Only act when the mobile dropdown is actually open — otherwise this
+        // fires on every click anywhere on the page (dashboard buttons, theme
+        // toggle, etc.) and force-hides the desktop nav links via inline style.
+        if (rightNav.classList.contains('open') && !rightNav.contains(e.target) && !menu.contains(e.target)) {
+            menu.classList.remove('bx-x');
             rightNav.classList.remove('open');
             const ul = rightNav.querySelector('ul');
             if (ul) ul.style.display = 'none';

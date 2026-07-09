@@ -6,6 +6,7 @@ import pandas as pd
 from dotenv import load_dotenv
 from flask import Flask, jsonify, render_template, request
 
+import analytics
 import chd
 import ecg_mi
 import stroke
@@ -289,6 +290,18 @@ def stroke_analysis():
 @app.route('/chd_analysis')
 def chd_anlaysis():
     return render_template('chd_analysis.html')
+
+
+@app.route('/api/stroke-analysis')
+def stroke_analysis_data():
+    gender = request.args.get('gender')
+    return jsonify(analytics.get_stroke_stats(gender))
+
+
+@app.route('/api/chd-analysis')
+def chd_analysis_data():
+    gender = request.args.get('gender')
+    return jsonify(analytics.get_chd_stats(gender))
 
 
 @app.route('/about')

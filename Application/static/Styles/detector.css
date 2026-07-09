@@ -119,12 +119,19 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   z-index: 999;
   background: rgba(15, 15, 35, 0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-glass);
-  transition: var(--transition);
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, padding 0.3s ease;
+  /* Force its own compositor layer: fixed + backdrop-filter otherwise flickers/
+     disappears during scroll on Chromium (Chrome/Edge) on Windows. will-change
+     is deliberately NOT used here — leaving it on permanently is a known
+     anti-pattern and was itself causing the navbar to blank out on class/DOM
+     changes (theme toggle, dynamic content) on some GPU drivers. */
+  transform: translateZ(0);
 }
 
 .n-wrapper.scrolled {
@@ -1197,19 +1204,50 @@ a.S-btn {
 }
 
 .chart-card {
+    position: relative;
     background: var(--bg-card);
     backdrop-filter: blur(20px);
     border: 1px solid var(--border-glass);
     border-radius: var(--radius-lg);
     padding: 2.5rem;
     box-shadow: var(--shadow-glass);
+    overflow: hidden;
+}
+
+.chart-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-lg);
+    padding: 1px;
+    background: var(--gradient-primary);
+    opacity: 0.3;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    animation: chartGlow 3s ease-in-out infinite;
+}
+
+@keyframes chartGlow {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.5; }
+}
+
+.chart-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 
 .chart-title {
-    text-align: center;
+    text-align: left;
     font-size: 2rem;
     font-weight: 800;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1218,6 +1256,54 @@ a.S-btn {
 
 .chart-title i {
     -webkit-text-fill-color: var(--accent);
+}
+
+.chart-status {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.chart-live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(8, 222, 157, 0.12);
+    border: 1px solid rgba(8, 222, 157, 0.35);
+    color: #6ee7b7;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+}
+
+.chart-live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #08de9d;
+    animation: liveDotPulse 1.8s infinite;
+}
+
+@keyframes liveDotPulse {
+    0% { box-shadow: 0 0 0 0 rgba(8, 222, 157, 0.55); }
+    70% { box-shadow: 0 0 0 8px rgba(8, 222, 157, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(8, 222, 157, 0); }
+}
+
+.chart-updated {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 576px) {
+    .chart-toolbar { flex-direction: column; align-items: flex-start; }
 }
 
 .chart-image {
@@ -1236,6 +1322,237 @@ a.S-btn {
 .chart-divider svg {
     max-width: 100%;
     height: auto;
+}
+
+/* --- Interactive analysis dashboard (KPI tiles, filters, live charts) --- */
+
+.dash-filter-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.dash-filter-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.dash-filter-pills {
+    display: inline-flex;
+    gap: 0.4rem;
+    padding: 0.3rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-glass);
+}
+
+.dash-pill {
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.45rem 1.1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.dash-pill:hover {
+    color: var(--text-primary);
+}
+
+.dash-pill.active {
+    background: var(--gradient-primary);
+    color: #0f0f23;
+}
+
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.kpi-tile {
+    padding: 1.1rem 1.2rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-glass);
+    background: var(--gradient-card);
+    transition: var(--transition);
+}
+
+.kpi-tile:hover {
+    transform: translateY(-3px);
+    border-color: rgba(108, 99, 255, 0.4);
+}
+
+.kpi-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-glass);
+    color: var(--accent);
+    font-size: 0.85rem;
+    margin-bottom: 0.6rem;
+}
+
+.kpi-tile.kpi-highlight .kpi-icon {
+    color: #ec4899;
+}
+
+.kpi-value {
+    font-size: 1.7rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+}
+
+.kpi-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 0.2rem;
+}
+
+.kpi-tile.kpi-highlight {
+    border-color: rgba(236, 72, 153, 0.4);
+    background: rgba(236, 72, 153, 0.07);
+}
+
+.kpi-tile.kpi-highlight .kpi-value {
+    background: linear-gradient(135deg, #f472b6, #ec4899);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+.chart-panel {
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-glass);
+    background: rgba(255, 255, 255, 0.03);
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-panel h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.chart-panel h3 i {
+    color: var(--accent);
+    font-size: 0.85rem;
+}
+
+.chart-canvas-wrap {
+    position: relative;
+    height: 220px;
+}
+
+.chart-panel canvas {
+    max-height: 220px;
+}
+
+.chart-panel.chart-panel-wide {
+    grid-column: 1 / -1;
+}
+
+.chart-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--border-glass);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+}
+
+.legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.legend-label {
+    flex: 1;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.legend-value {
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.chart-grid.is-loading {
+    opacity: 0.5;
+    pointer-events: none;
+    transition: var(--transition);
+}
+
+/* Staggered entrance for KPI tiles / chart panels */
+.kpi-tile,
+.chart-panel {
+    animation: dashFadeIn 0.5s ease both;
+    animation-delay: calc(var(--i, 0) * 70ms);
+}
+
+@keyframes dashFadeIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.chart-live-badge.pulse-refresh {
+    box-shadow: 0 0 0 4px rgba(8, 222, 157, 0.18);
+}
+
+.dash-loading {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 3rem 0;
+    font-size: 0.95rem;
+}
+
+.dash-loading i {
+    margin-right: 0.5rem;
+    color: var(--accent);
+}
+
+@media screen and (max-width: 576px) {
+    .dash-filter-row { flex-direction: column; align-items: flex-start; }
 }
 
 /* Responsive */
